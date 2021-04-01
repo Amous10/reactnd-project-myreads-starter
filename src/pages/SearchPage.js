@@ -11,9 +11,9 @@ class SearchPage extends React.Component {
     query: ''
   }
 
-  search = ( val ) => {
-    if ( val.length ) {
-      BooksAPI.search( val ).then( books => {
+  search = ( book ) => {
+    if ( book.length ) {
+      BooksAPI.search( book ).then( books => {
         if (books.length > 0) {
           books = this.assignShelf( books )
           this.setState( () => {
@@ -21,7 +21,7 @@ class SearchPage extends React.Component {
           })
         } else {
           this.setState( { searchResults: [] } )
-          console.error('Search term not available in database')
+          console.error('Search not available')
         }
       })
     }
@@ -49,9 +49,7 @@ class SearchPage extends React.Component {
   }
 
   addToShelf = ( book, shelf ) => {
-    // Change in DB
     this.props.onChange( book, shelf )
-    // To view change immediately in search screen
     book.shelf = shelf
     this.forceUpdate()
   }

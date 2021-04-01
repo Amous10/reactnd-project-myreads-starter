@@ -7,7 +7,6 @@ class Home extends React.Component {
 
   render() {
 		const books = this.props.books
-		// @name: set displayed shelf name. @type: string in book.shelf
     const shelves = [
       {
         type: 'currentlyReading',
@@ -36,20 +35,17 @@ class Home extends React.Component {
                   key={ shelf.type }
                   books={ books.filter( book => ( book.shelf === shelf.type )) }
                   name={ shelf.name }
-                  changeShelf={ this.props.onChange }
+                  chooseShelf={ this.props.onChange }
                 />
               ))
             }
 
           </div>
         </div>
-        {/* <div className="open-search-button"> */}
         <div className="open-search">
-            {/* <Link to= "/search" className="open-search-button">s</Link> */}
-            <a className="open-search-button" href="/search" >s</a>
+            <Link className="open-search-button" to="/search" ></Link>
             </div>
         </div>
-      // </div>
 
     )
   }

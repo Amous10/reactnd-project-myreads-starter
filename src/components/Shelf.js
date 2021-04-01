@@ -3,7 +3,7 @@ import Book from "./Book";
 
 class Shelf extends React.Component {
 	moveToShelf = (book, shelf) => {
-		this.props.changeShelf(book, shelf);
+		this.props.chooseShelf(book, shelf);
 	};
 
 	render() {
